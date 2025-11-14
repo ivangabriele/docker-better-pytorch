@@ -1,0 +1,46 @@
+name: Release
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  packages: write
+
+jobs:
+  build-base:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Login to Docker Hub
+        uses: docker/login-action@v3
+        with:
+          username: ${{ secrets.DOCKER_USERNAME }}
+          password: ${{ secrets.DOCKER_TOKEN }}
+      - name: Set up Docker Build
+        uses: useblacksmith/setup-docker-builder@v1
+      - name: Set up QEMU
+        uses: docker/setup-qemu-action@v3
+      # - name: Set Environment Variables
+      #   id: env-vars
+      #   shell: bash
+      #   run: |
+      #     BRANCH_NAME=$(echo ${GITHUB_REF##refs/heads/} | sed 's/\//-/g')
+      #     SUFFIX="-dev-${BRANCH_NAME}"
+      #     echo "RELEASE=${SUFFIX}" >> $GITHUB_ENV
+      #     echo "release_suffix=${SUFFIX}" >> $GITHUB_OUTPUT
+      - name: Build base images
+        uses: docker/bake-action@v6
+        # env:
+        #   BUILDX_BAKE_ENTITLEMENTS_FS: 0
+        #   RELEASE_SUFFIX: ${{ steps.setup.outputs.release-suffix }}
+        with:
+          source: .
+          files: |
+            versions.hcl
+            recipe.hcl
+          push: true
