@@ -1,7 +1,9 @@
 ARG BASE_IMAGE=non-existing
 FROM ${BASE_IMAGE}
 
-WORKDIR /
+
+# RUN python -m pip uninstall -y torch torchvision torchaudio
+# RUN python -m pip install --pre torch torchvision torchaudio --index-url https://download.pytorch.org/whl/nightly/cu130
 
 RUN apt update
 RUN apt install -y \
@@ -11,4 +13,6 @@ RUN apt install -y \
 # Install uv
 RUN curl -LsSf https://astral.sh/uv/install.sh | sh
 
-CMD ["/start.sh"]
+WORKDIR /workspace
+
+# CMD ["/start.sh"]
