@@ -1,5 +1,8 @@
 # Better PyTorch Docker Image
 
+[![img-docker]][link-docker]
+[![img-github-actions]][link-github-actions]
+
 - Base: [runpod/pytorch](https://hub.docker.com/r/runpod/pytorch)
 - Additional Python tools: uv.
 - Additional terminal tools: kitty-terminfo.
@@ -18,3 +21,10 @@ All environment variables are optional.
 ```sh
 ./bake.sh
 ```
+
+---
+
+[img-docker]: https://img.shields.io/docker/pulls/ivangabriele/better-pytorch?style=for-the-badge
+[img-github-actions]: https://img.shields.io/github/actions/workflow/status/ivangabriele/docker-better-pytorch/release.yml?branch=main&label=Release&style=for-the-badge
+[link-docker]: https://hub.docker.com/r/ivangabriele/better-pytorch
+[link-github-actions]: https://github.com/ivangabriele/docker-better-pytorch/actions/workflows/release.yml
