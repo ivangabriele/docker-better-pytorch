@@ -20,18 +20,18 @@ jobs:
         # https://dev.to/mathio/squeezing-disk-space-from-github-actions-runners-an-engineers-guide-3pjg
         run: |
           df -h
-          rm -fr /usr/lib/jvm
-          rm -fr /usr/share/dotnet
-          rm -fr /usr/share/swift
-          rm -fr /usr/local/.ghcup
-          rm -fr /home/runner/.rustup
-          rm -fr /usr/local/julia*
-          rm -fr /usr/local/lib/android/sdk
-          rm -fr /usr/local/share/chromium
-          rm -fr /opt/hostedtoolcache/CodeQL
-          rm -fr /usr/local/share/powershell
-          rm -fr /opt/az
-          rm -fr /usr/lib/google-cloud-sdk
+          sudo rm -fr /usr/lib/jvm
+          sudo rm -fr /usr/share/dotnet
+          sudo rm -fr /usr/share/swift
+          sudo rm -fr /usr/local/.ghcup
+          sudo rm -fr /home/runner/.rustup
+          sudo rm -fr /usr/local/julia*
+          sudo rm -fr /usr/local/lib/android/sdk
+          sudo rm -fr /usr/local/share/chromium
+          sudo rm -fr /opt/hostedtoolcache/CodeQL
+          sudo rm -fr /usr/local/share/powershell
+          sudo rm -fr /opt/az
+          sudo rm -fr /usr/lib/google-cloud-sdk
           df -h
       - name: Login to Docker Hub
         uses: docker/login-action@v3
