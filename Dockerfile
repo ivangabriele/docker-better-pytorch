@@ -5,6 +5,7 @@ ENV DEBIAN_FRONTEND=noninteractive
 
 RUN apt update
 
+# Add locales package and set en_US.UTF-8 locale to prrevent bash setlocale warnings
 RUN apt install -y --no-install-recommends locales \
  # Enable en_US.UTF-8 in /etc/locale.gen
  && sed -i 's/^# *\(en_US.UTF-8 UTF-8\)$/\1/' /etc/locale.gen \
@@ -16,6 +17,10 @@ RUN apt install -y --no-install-recommends locales \
 ENV LANG=en_US.UTF-8 \
     LANGUAGE=en_US:en \
     LC_ALL=en_US.UTF-8
+
+# Add github.com to known hosts to prevent SSH authenticity prompt
+RUN mkdir -p /etc/ssh \
+ && ssh-keyscan -T 5 -t ed25519,ecdsa,rsa github.com >> /etc/ssh/ssh_known_hosts
 
 RUN apt install -y \
   htop \
