@@ -4,7 +4,7 @@
 [![img-github-actions]][link-github-actions]
 
 - Base: [runpod/pytorch](https://hub.docker.com/r/runpod/pytorch)
-- Additional development tools: mise.
+- Additional development tools: Git LFS, mise.
 - Additional Python tools: uv.
 - Additional system tools: htop, nvtop.
 - Additional terminal tools: kitty-terminfo.

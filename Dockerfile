@@ -29,6 +29,7 @@ RUN mkdir -p /etc/ssh \
  && ssh-keyscan -T 5 -t ed25519,ecdsa,rsa github.com >> /etc/ssh/ssh_known_hosts
 
 RUN apt install -y \
+  git-lfs \
   htop \
   kitty \
   nvtop
