@@ -7,6 +7,11 @@
 - Additional Python tools: uv.
 - Additional system tools: htop, nvtop.
 - Additional terminal tools: kitty-terminfo.
+- Fixes:
+  - Remove bash locale warnings on initial shell start.
+  - Pre-add github.com to known hosts to prevent SSH authenticity prompt.
+  - Change default working directory to `/root`,
+    preventing not-yet-updated path issues when using network volumes mounted on `/workspace`.
 
 ## Environment Variables
 
