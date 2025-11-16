@@ -11,8 +11,7 @@ RUN apt install -y --no-install-recommends locales \
  # Generate locales
  && locale-gen \
  # Set default system locale
- && update-locale LANG=en_US.UTF-8 LC_ALL=en_US.UTF-8 \
- && rm -rf /var/lib/apt/lists/*
+ && update-locale LANG=en_US.UTF-8 LC_ALL=en_US.UTF-8
 # Keep environment consistent in all processes
 ENV LANG=en_US.UTF-8 \
     LANGUAGE=en_US:en \
