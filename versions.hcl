@@ -5,10 +5,15 @@ RUNPOD_VERSION = "1.0.2"
 
 CUDA_VERSIONS = [
   {
-    version = "12.9.0"
-    slug = "cu1290"
+    version = "12.8.1"
+    slug = "cu1281"
     ubuntu_versions = ["24.04"]
   },
+  # {
+  #   version = "12.9.0"
+  #   slug = "cu1290"
+  #   ubuntu_versions = ["24.04"]
+  # },
   # Doesn't seem ready yet with PyTorch 2.8.0
   # {
   #   version = "13.0.0"
