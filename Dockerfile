@@ -20,7 +20,8 @@ ENV LANG=en_US.UTF-8 \
 
 RUN apt install -y \
   htop \
-  kitty
+  kitty \
+  nvtop
 
 # Install uv
 RUN curl -LsSf https://astral.sh/uv/install.sh | sh

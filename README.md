@@ -5,6 +5,7 @@
 
 - Base: [runpod/pytorch](https://hub.docker.com/r/runpod/pytorch)
 - Additional Python tools: uv.
+- Additional system tools: htop, nvtop.
 - Additional terminal tools: kitty-terminfo.
 
 ## Environment Variables
