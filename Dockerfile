@@ -33,5 +33,8 @@ RUN apt install -y \
   kitty \
   nvtop
 
+# Install mise
+RUN curl https://mise.run | sh
+
 # Install uv
 RUN curl -LsSf https://astral.sh/uv/install.sh | sh
