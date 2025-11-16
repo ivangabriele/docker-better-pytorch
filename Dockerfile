@@ -37,6 +37,7 @@ RUN apt install -y \
 # Install mise
 RUN curl https://mise.run | sh
 RUN echo 'eval "$(~/.local/bin/mise activate bash)"' >> ~/.bashrc
+RUN cd / && /root/.local/bin/mise trust .
 
 # Install uv
 RUN curl -LsSf https://astral.sh/uv/install.sh | sh
