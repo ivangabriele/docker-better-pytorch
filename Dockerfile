@@ -3,6 +3,12 @@ FROM ${BASE_IMAGE}
 
 ENV DEBIAN_FRONTEND=noninteractive
 
+# We don't want to sit within `/workspace` when accessing the container shell
+# because it may be mounted using a network volume (persistent storage).
+# The "pre-mount vs mounted" issue being that we need to first `cd /workspace` every time we SSH
+# in order for the shell to run a fresh path lookup. Otherwise `/workspace` won't reeflect the mounted volume.
+WORKDIR /root
+
 RUN apt update
 
 # Add locales package and set en_US.UTF-8 locale to prrevent bash setlocale warnings
@@ -29,7 +35,3 @@ RUN apt install -y \
 
 # Install uv
 RUN curl -LsSf https://astral.sh/uv/install.sh | sh
-
-WORKDIR /workspace
-
-# CMD ["/start.sh"]
